@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="/codexhydra.css">
+    <title>CODEX HYDRA 2020 / deme</title>
+      <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+     
+<nav class="navbar navbar-expand-lg oivi-nav">  
+<p> CODEX HYDRA 2020</p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+ <img src="/menu.svg" width="30">
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+     </ul>
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://instagram.com/ojack" data-toggle="tooltip" title="ojack" target="_blank">ojack</a>
+ </li>
+    <li class="nav-item">
+<a class="nav-link" href="https://instagram.com/mutantexturas" data-toggle="tooltip" title="deme" target="_blank">deme</a>
+ </li>
+
+</ul> 
+
+</div>
+</nav>      
+      
+<section class="container">
+<div class="row">
+<img src="hydra.jpg" class="hydra">
+    <div class="col-md-10">
+<H2>HYDRA > VISUALES CON CODIGO EN VIVO</H2>
+Es un conjunto de herramientas para la visualización en vivo de imágenes 
+en red. Estas herramientas, inspiradas en sintetizadores modulares analógicos,  
+constituyen una exploración sobre el uso de la transmisión a través de la web 
+para enrutar fuentes y salidas de video en tiempo real.
+Hydra utiliza múltiples framebuffers para permitir la mezcla dinámica, la 
+composición y la colaboración entre corrientes visuales conectadas del navegador. 
+Las transformadas de coordenadas y colores se pueden aplicar a cada salida a 
+través de funciones encadenadas.
+Este zine reúne un conjunto de funciones descriptas en este <a href="https://github.com/ojack/hydra/blob/master/docs/funcs.md">repositorio</a>
+<hr>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cw7tPDrFIQg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+<hr>
+<h2>{COMENZANDO EN HYDRA}</h2>
+<p>Para comenzar, entrá a <a href="https://hydra-editor.glitch.me" target="_blank">HYDRA EDITOR</a></p>
+
+<p><strong class="script">CTRL-Enter:</strong> Correr una linea de código</p>
+<p><strong class="script">CTRL-Shift-Enter:</strong> Correr todo el código en la pantalla</p>
+<p><strong class="script">ALT-Enter:</strong> Correr un bloque de código</p>
+<p><strong class="script">CTRL-Shift-H:</strong> Esconder o mostrar código</p>
+<p><strong class="script">CTRL-Shift-S:</strong> Guardar captura de pantalla y descargar</p>
+<p><strong class="script">CTRL-Shift-G:</strong> Compartir en Twitter. Compartido en <a href=""> @hydrapatterns</a></p>
+<p>Todo el código se puede ejecutar desde el editor de texto en el navegador o desde la consola del navegador</p>
+
+<p>Consulte <a href="https://twitter.com/hydra_patterns" target="_blank">Hydra Patterns</a> para ver los patrones que la gente ha compartido como una forma fácil de comenzar.</p>        
+        
+<hr>
+<H2>{ FUNCIONES BASICAS }</H2>       
+<p>
+<strong class="script">
+osc(20, 0.1, 0.8).out()
+</strong>
+Renderiza un oscilador con parámetros de frecuencia, sincronización y rgb offset.
+</p>
+<p>
+<strong class="script">
+osc(20, 0.1, 0.8).rotate(0.8).out()
+</strong>
+// Girar el oscilador 1.5 radianes.
+</p>
+<p>
+<strong class="script">
+osc(20, 0.1, 0.8).rotate(0.8).pixelate(20, 30).out()
+</strong>
+Pixelar la salida de la función anterior.
+</p>
+
+<p>
+<strong class="script">
+s0.initCam()
+    </strong>
+Inicializa una webcam en el búfer de origen.  
+</p>
+
+<p>
+<strong class="script">
+    src(s0).out() </strong>// Renderiza la fuente de buffer.
+</p>  
+
+<p>
+<strong class="script">
+    s0.initCam(1) </strong>// Inicializa una webcam en el búfer de origen.
+</p>
+
+<p>  
+<strong class="script">
+src (s0) .out (o0) 
+</strong> // Configura la fuente de o0 para repsentar el búfer que contiene la cámara web.
+</p>
+<p>
+<strong class="script">
+    osc (10, 0.2, 0.8) .diff (o0) .out (o1)</strong>
+Inicializa un gradiente en el búfer de salida o1 compuesto con el contenido de o0.
+</p>
+
+<p>
+<strong class="script">
+    render (o1) </strong> // Render o1 a la pantalla.
+</p>
+
+<hr>
+
+<h2>
+WEBCAM KALEIDOSCOPIO   
+</h2>
+    
+<p>
+<strong class="script">
+s0.initCam()</strong>
+Inicializa una webcam en el búfer de origen s0.    
+</p>
+
+<p>
+<strong class="script">
+    
+</strong>
+
+</p>
+<p>
+<strong class="script">
+src(s0).kaleid(4).out() 
+</strong>
+Renderizar la webcam a un caleidoscopio.
+</p>       
+<p>
+También podés componer múltiples fuentes juntas de la siguiente manera:
+<strong class="script">
+osc(10)
+.rotate(0.5)
+.diff(osc(200))
+.out()    
+</strong>
+
+</p>
+<p>
+De forma pdeterminada, el entorno contiene cuatro bufers de salida 
+independientes que pueden mostrar gráficos diferentes. Se accede a las salidas 
+mediante las variables o0, o1, o2 y o3. Para procesarlas en el búfer de salida o1: 
+<strong class="script">
+osc().out(o1)
+render(o1)   
+</strong>
+
+</p>
+<p>
+<strong class="script">
+render()  
+</strong>
+Esto renderiza el contenido de o1.
+Si no se especifica ninguna salida en out (), los gráficos se repsentan en el 
+búfer o0. Para mostrar todos los buffers de render a la vez se usa: 
+</p>
+<hr>
+<h2>{ OPERADORES }</h2>
+<p>Funciones para realizar operaciones en fuentes.</p>    
+<p>
+Los buffers de salida se pueden mezclar y componer en la pantalla.
+Las funciones compuestas realizan operaciones aritméticas para combinar el color de textura de entrada 
+con el color de textura base, similar a los modos de mezcla de photoshop.</p>
+<p>Los modos de mezcla disponibles:</p>
+
+<p class="script">.blend(textura,valor)</p><p> // Mezcla las texturas</p> 
+<p class="script">.diff(textura,valor)</p><p> // Diferencia de texturas</p>
+<p class="script">.mult(textura,valor)</p><p> // Multiplique las imágenes y mezcle con la textura por `cantidad`.</p>  
+<p class="script">.add(textura,valor)</p> <p>// Adición</p>
+<p class="script">.mask(textura,valor)</p><p> // Mascara</p>
+<p class="script">.layer(textura,valor)</p><p> // Superposición de textura basada en el valor alfa.</p>   
+
+<hr>
+        
+<h2>{ FUNCIONES COMO VARIABLES }</h2>
+
+<p>
+Cada parámetro se puede definir como una función en lugar de una variable estática. 
+Por ejemplo:
+<strong class="script">
+osc (function () {return 100 * Math.sin (time * 0.1)}). out ()
+</strong>
+modifica la frecuencia del oscilador en función del tiempo. Este es una 
+variable global que repsenta los milisegundos que han transcurrido desde que se 
+cargó la página.
+</p>
+ 
+
+<p>
+Esto se puede escribir de manera más concisa usando la sintaxis de es6:
+<strong class="script">
+osc (() => (100 * Math.sin (time * 0.1))) .out () </strong>
+
+</p>
+    
+<hr>    
+<h2>{ CONEXION A FLUJOS REMOTOS }</h2>
+
+<p>
+ Cualquier instancia de Hydra puede usar otras instancias/ ventanas que contengan 
+Hydra como fuentes de entrada, siemp que estén conectadas a Internet y no estén 
+bloqueadas por un firewall. _Hydra_ usa webrtc (_webstreaming_ en tiempo real) 
+bajo el capó para compartir transmisiones de video entre ventanas abiertas. El 
+módulo incluido _rtc-patch-bay_ administra las conexiones entre las ventanas 
+conectadas y también se puede usar como un módulo independiente para convertir 
+cualquier sitio web en una fuente dentro de la hidra. Consultá la fuente de la 
+cámara independiente a continuación, por ejemplo.
+Para comenzar, abrí _Hydra_ simultáneamente en dos ventanas separadas. En una de
+las ventanas, establecé un nombre para el origen del compartimiento de parches 
+dado:
+<strong class="script"> 
+pb.setName (“myGraphics”)</strong>
+</p>
+<p>
+
+El título de la ventana debe cambiar al nombre ingresado en "setName ()".
+Desde la otra ventana, iniciá “myGraphics” como una secuencia de origen:
+<strong class="script">
+s0.initStream (“myGraphics”)
+</strong>
+</p>
+
+<p>
+y renderizá a pantalla:
+<strong class="script">
+s0.initStream (“myGraphics”)
+src (s0) .out ()
+</strong>
+</p>
+<p>
+Las conexiones a veces tardan unos segundos en establecerse, abrí la consola del 
+navegador (Ctrl+Shift+J o Cmd+Shift+J en Mac) para ver el progreso. Para listar 
+las fuentes disponibles, escribí lo siguiente en la consola: 
+<strong class="script">      
+pb.list ()
+</strong>        
+</p>  
+
+<hr>    
+      
+<h2> { RESPUESTA DE AUDIO }</h2>
+<p>
+La funcionalidad FFT está disponible a través de un objeto de audio al que se 
+accede mediante “a”. El editor utiliza https://github.com/meyda/meyda para el 
+análisis de audio. </p> 
+<p>
+<strong class="script">  
+a.show()
+</strong>
+// Muestra las bandejas FFT.
+</p> 
+
+<p>
+<strong class="script">  
+a.setBins (6)
+</strong>
+Establecer el número de fft bins.
+</p>
+    
+<p>
+<strong class="script"> 
+a.fft [0]
+</strong>
+// Acceder al valor del contenedor de la izquierda (frecuencia más baja).
+</p>
+
+<p>Ahora se puede usar el valor para controlar una variable:
+<strong class="script">     
+ osc (10, 0, () => (a.fft [0] * 4)).out()
+</strong>
+</p>
+<p>
+Es posible calibrar la capacidad de respuesta cambiando el valor mínimo y máximo 
+detectado (representado como líneas borrosas sobre el pie).
+</p>
+
+<p>
+<strong class="script">
+a.setCutoff (4)  
+</strong>
+// Establece el valor mínimo detectado (en 4).
+</p>
+
+<p>
+<strong class="script">
+a.setScale (2)
+</strong>
+Cambia el rango que se detecta mediante la configuración de la escala.
+El "fft []" devolverá un valor entre 0 y 1, donde 0 repsenta el límite y 1 
+corresponde al máximo.        
+</p>
+
+<p>
+<strong class="script">
+a.setSmooth (0.8)
+</strong>
+Establece el suavizado entre las lecturas de nivel de audio (valores entre 
+0 y 1). 0 corresponde a ningún suavizado (tiempo de reacción más rápido), 
+mientras que 1 significa que el valor nunca cambiará.
+</p>
+
+<p>
+<strong class="script">
+a.hide ()
+        </strong>
+Oculta la forma de onda de audio.
+</p>
+    
+<hr>    
+<h2>{ GEOMETRÍA }</h2>
+<p>
+<strong class="script">
+.kaleid( nLados)
+</strong>
+Efecto caleidoscopio con repetición igual a "nCaras", que adquiere una valor de
+4.0 por defecto.
+</p>
+
+<p>
+<strong class="script">
+.rotate(ángulo, velocidad)
+</strong>
+Ángulo igual a 10.0 por defecto / Velocidad igual a 0 por defecto.
+</p>
+
+<p>
+<strong class="script">
+.scale( tamaño, xfactor, yfactor)
+</strong>
+ xfactor e yfactor = 1.0 por defecto.        
+</p>
+
+<p>
+<strong class="script">   
+.pixelate( x, y )
+</strong>
+Pixela la textura con segmentos pixelX y segmentos pixelY. pixelX y pixelY iguales
+a 20 por defecto.
+</p>
+    
+
+<p>
+<strong class="script">  
+.scrollX(scrollX, velocidad)
+</strong>
+scrollX = 0.5 por defecto. 
+Velocidad = 0 por defecto.   
+</p>
+
+<p>
+<strong class="script"> 
+.scrollY( scrollY, velocidad )
+</strong>
+scrollY = 0.5 por defecto. 
+Velocidad = 0 por defecto.
+</p>
+
+<p>
+<strong class="script"> 
+.repeat(x,y)
+</strong>
+Repite la textura en los ejes X e Y
+</p>
+
+<p>
+<strong class="script">
+.repeatX()
+</strong>
+Repite la textura en el eje X
+</p>
+
+<p>
+<strong class="script">
+.repeatY()
+</strong>
+Repite la textura en el eje X
+</p>   
+
+<h2>{ COLOR }</h2>
+<p>
+<strong class="script"> 
+.contrast(cantidad)
+</strong>
+Por defecto la cantidad es igual a 1.6 . Mayor valor de cantidad genera mayor 
+contraste.
+</p>
+
+<p>
+<strong class="script">   
+.color( r, g, b )
+</strong>
+Colorea la textura en el sistema de color rgb.
+</p>
+
+<p>
+<strong class="script"> 
+.colorama(cantidad)
+</strong>
+Desplaza los valores del modelo de color matriz, saturación y valor (HSV, por sus
+siglas en inglés: Hue,Saturation,Value). Por defecto adquiere un valor igual 
+a 0.005.
+</p>
+
+<p>
+<strong class="script"> 
+.invert(cantidad)
+</strong>
+Invierte los colores. Por defecto es igual a 1.0.
+</p> 
+    
+<p>
+<strong class="script">
+.luma(compuerta, tolerancia)
+</strong>
+compuerta = 0.5 por defecto.
+tolerancia = 0.1 por defecto.
+</p>
+
+<p>
+<strong class="script"> 
+.shift(r,g,b,a)
+</strong>
+</p>     
+        
+<p>
+<strong class="script">
+.thresh (umbral, tolerancia)
+</strong>
+umbral igual a 0.5 por defecto. tolerancia igual a 0.4 por defecto.
+</p> 
+        
+<hr>
+<h2>{ FUNCIONES DE MODULACION }</h2>
+<p>Funciones para describir modulaciones de fuentes.</p>
+<p> <strong class="script">.modulate(textura, cantidad)</strong></p>
+<p> <strong class="script">.modulateHue (color, cantidad)</strong></p>
+<p> <strong class="script">.modulateKaleid (nLados)</strong></p>
+<p> <strong class="script">.modulatePixelate(factor, desfazaje)</strong></p>
+<p> <strong class="script">.modulateRotate (factor, desfazaje)</strong></p>
+<p> <strong class="script">.modulateScale (factor, desfazaje)</strong></p>
+<p> <strong class="script">.modulateScrollX (factor, scrollX, velocidad)</strong></p>
+<p> <strong class="script">.modulateScrollY (factor, scrollY, velocidad)</strong></p>
+<p> <strong class="script">.modulateRepeat( textura, repetir X, repetir Y, desfazaje X, desfazaje Y )</strong></p>
+        
+<p>Mas información acerca de la modulación en <a href="https://lumen-app.com/guide/modulation/">Lumen-app</a></p>
+<h2>{ FUENTES }</h2>
+<p>
+<strong class="script">
+.osc( frecuencia, sincro, desfazaje )
+</strong>
+Frecuencia = 60 por defecto. 
+Sincro = 0.1 por defecto. 
+Desfazaje = 0 por defecto.
+</p>
+
+<p>
+<strong class="script">
+.render(output buffer)
+</strong> 
+o0 por defecto.
+</p>
+
+    
+<p>
+<strong class="script">
+shape(lados, radio, suavizado)</strong> 
+Genera una forma geométrica.
+</p>
+<p>
+<strong class="script">
+solid(r, g, b, a)
+</strong>   
+Genera un solido (RGBA).
+</p>
+
+<p>
+<strong class="script">
+gradient(velocidad)
+</strong>  
+Genera un gradiente.
+</p>
+
+<p>
+<strong class="script">
+noise(escala, desfazaje)
+</strong>  
+Genera Ruido Perlin.
+</p>
+
+<p>
+<strong class="script">
+voronoi(escala, velocidad, combinación)
+</strong>  
+Genera diagramas de Voronoi.
+</p>
+
+<p>
+<strong class="script">
+.out(output buffer)
+</strong> 
+con output buffer osc: o0,o1,o2,o3 y src: s0,s1,s2,s3.
+</p>
+<hr>
+<h2>{ SECUENCIAS DE PARÁMETROS }</h2>
+<p>
+<strong class="script">
+osc([80, 100, 200, 50], 1 )) 
+.out(o0)
+</strong>
+</p> 
+    
+<p>
+<strong class="script">
+osc([80, 100, 200, 50].fast(0.2),1)) 
+.out(o0)
+</strong></p>
+<p>
+<strong class="script">
+osc([80, 100, 200, 50].smooth(0.2),1)) 
+.out(o0)
+</strong> </p>
+<p>
+<strong class="script">
+osc([80, 100, 200, 50].ease(0.2),1)) 
+.out(o0)
+</strong> </p>
+<p>
+<strong class="script">
+osc([80, 100, 200, 50].fit(0.2),1)) 
+.out(o0)
+</strong> </p>
+
+<hr>
+<h2>{ VARIABLES GLOBALES }</h2>
+Hay algunas variables útiles que se definen globalmente y pueden ser utilizadas 
+dentro  de funciones como parámetros.
+<h5>
+<br>
+{ CONTROL DE PARAMETROS SEGÚN EL TIEMPO }</h5> 
+<p>
+<strong class="script">
+.osc(({tiempo})=>Math.sin(tiempo))
+.out(o0)
+</strong>
+</p>
+<h5>{ CONTROL DE PARAMETROS CON EL MOUSE }</h5>
+<p>
+<strong class="script">
+.osc(() => mouse.x).out(o0)
+</strong>
+Controla la frecuencia del oscilador con la posición 
+X e Y del mouse.
+</p>
+<hr>
+<h2> { PIXEL JAM }</h2>        
+<p>Actualmente es un trabajo en progreso, creado por Olivia como parte del Festival Fotosíntesis 2019 en Medellín, Colombia.</p> 
+<p>Este editor usa las mismas funciones y sintaxis que el editor web hydra, excepto que hay tres cuadros de texto, cada uno correspondiente a los buffers de salida o0, o1 y o2.</p>
+<p>No es necesario escribir '.out ()' porque el editor se encarga de enviar el código al búfer correcto. Por ejemplo, 'osc (). Modulate (o0)' escrito en el cuadro del medio (o1), usaría el buffer de la izquierda (o0) para modular el buffer del medio</p>
+<p>Recomiendo probar el editor individual primero si es la primera vez que usa Hydra! No dude en hacer preguntas o dejar comentarios en el foro :) </p>
+<p>Entrá a <a href="https://pixeljam.glitch.me/"> Pixel Jam </a>, crea tu nick name y comenza a crear con otrxs</p>
+    
+</div></div>
+</section>
+      
+
+    
+<footer class="footer text-center">
+<div class="col-md-12"> 
+<p class="scripter"> CODEX HYDRA 2020 / deme / <a href="">CLiC</a> (Colectivo de Live Coders) / Hydra es una creación de Olivia Jack / Esto es para ti, Sigamos Colaborando</p>
+</div>
+</footer>
+      
+
+<script src="https://www.powr.io/powr.js?platform=html"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
