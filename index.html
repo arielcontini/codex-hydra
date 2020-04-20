@@ -12,15 +12,17 @@
   </head>
   <body>
      
-<nav class="navbar navbar-expand-lg">  
-<p> CODEX HYDRA 2020</p>
+<nav class="navbar navbar-expand-lg oivi-nav">  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+ <img src="/menu.svg" width="30">
+  </button>
 
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
      </ul>
 <ul class="navbar-nav ml-auto">
 <li class="nav-item">
-<a class="nav-link" href="https://instagram.com/ojack" data-toggle="tooltip" title="ojack" target="_blank">ojack</a>
+<a class="nav-link" href="https://github.com/ojack" data-toggle="tooltip" title="ojack" target="_blank">ojack</a>
  </li>
     <li class="nav-item">
 <a class="nav-link" href="https://instagram.com/mutantexturas" data-toggle="tooltip" title="deme" target="_blank">deme</a>
@@ -32,9 +34,10 @@
 </nav>      
       
 <section class="container">
+<img src="hydra.jpg" class="hydra" style="width:20%">
 <div class="row">
-<img src="hydra.jpg" class="hydra">
-    <div class="col-md-10">
+
+    <div class="col-md-7 offset-md-2">
 <H2>HYDRA > VISUALES CON CODIGO EN VIVO</H2>
 Es un conjunto de herramientas para la visualización en vivo de imágenes 
 en red. Estas herramientas, inspiradas en sintetizadores modulares analógicos,  
@@ -44,7 +47,7 @@ Hydra utiliza múltiples framebuffers para permitir la mezcla dinámica, la
 composición y la colaboración entre corrientes visuales conectadas del navegador. 
 Las transformadas de coordenadas y colores se pueden aplicar a cada salida a 
 través de funciones encadenadas.
-Este zine reúne un conjunto de funciones descriptas en este <a href="https://github.com/ojack/hydra/blob/master/docs/funcs.md" target="_blank">repositorio</a>
+Este zine reúne un conjunto de funciones descriptas en este <a href="https://github.com/ojack/hydra/blob/master/docs/funcs.md">repositorio</a>
 <hr>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cw7tPDrFIQg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
@@ -57,7 +60,8 @@ Este zine reúne un conjunto de funciones descriptas en este <a href="https://gi
 <p><strong class="script">ALT-Enter:</strong> Correr un bloque de código</p>
 <p><strong class="script">CTRL-Shift-H:</strong> Esconder o mostrar código</p>
 <p><strong class="script">CTRL-Shift-S:</strong> Guardar captura de pantalla y descargar</p>
-<p><strong class="script">CTRL-Shift-G:</strong> Compartir en Twitter. Compartido en <a href=""> @hydrapatterns</a></p>
+<p><strong class="script">CTRL-Shift-G:</strong> Compartir en Twitter.
+    
 <p>Todo el código se puede ejecutar desde el editor de texto en el navegador o desde la consola del navegador</p>
 
 <p>Consulte <a href="https://twitter.com/hydra_patterns" target="_blank">Hydra Patterns</a> para ver los patrones que la gente ha compartido como una forma fácil de comenzar.</p>        
@@ -126,13 +130,6 @@ WEBCAM KALEIDOSCOPIO
 <strong class="script">
 s0.initCam()</strong>
 Inicializa una webcam en el búfer de origen s0.    
-</p>
-
-<p>
-<strong class="script">
-    
-</strong>
-
 </p>
 <p>
 <strong class="script">
@@ -212,13 +209,14 @@ osc (() => (100 * Math.sin (time * 0.1))) .out () </strong>
 
 <p>
  Cualquier instancia de Hydra puede usar otras instancias/ ventanas que contengan 
-Hydra como fuentes de entrada, siemp que estén conectadas a Internet y no estén 
+Hydra como fuentes de entrada, siempre que estén conectadas a Internet y no estén 
 bloqueadas por un firewall. _Hydra_ usa webrtc (_webstreaming_ en tiempo real) 
-bajo el capó para compartir transmisiones de video entre ventanas abiertas. El 
+para compartir transmisiones de video entre ventanas abiertas. El 
 módulo incluido _rtc-patch-bay_ administra las conexiones entre las ventanas 
 conectadas y también se puede usar como un módulo independiente para convertir 
-cualquier sitio web en una fuente dentro de la hidra. Consultá la fuente de la 
-cámara independiente a continuación, por ejemplo.
+cualquier sitio web en una fuente dentro de la hydra. Consultá la fuente de la 
+cámara independiente a continuación, por ejemplo.</p>
+<p>
 Para comenzar, abrí _Hydra_ simultáneamente en dos ventanas separadas. En una de
 las ventanas, establecé un nombre para el origen del compartimiento de parches 
 dado:
@@ -571,7 +569,7 @@ X e Y del mouse.
 <p>Este editor usa las mismas funciones y sintaxis que el editor web hydra, excepto que hay tres cuadros de texto, cada uno correspondiente a los buffers de salida o0, o1 y o2.</p>
 <p>No es necesario escribir '.out ()' porque el editor se encarga de enviar el código al búfer correcto. Por ejemplo, 'osc (). Modulate (o0)' escrito en el cuadro del medio (o1), usaría el buffer de la izquierda (o0) para modular el buffer del medio</p>
 <p>Recomiendo probar el editor individual primero si es la primera vez que usa Hydra! No dude en hacer preguntas o dejar comentarios en el foro :) </p>
-<p>Entrá a <a href="https://pixeljam.glitch.me/" target="_blank"> Pixel Jam </a>, crea tu nick name y comenza a crear con otrxs</p>
+<p>Entrá a <a href="https://pixeljam.glitch.me/"> Pixel Jam </a>, crea tu nick name y comenza a crear con otrxs</p>
     
 </div></div>
 </section>
