@@ -458,7 +458,7 @@ umbral igual a 0.5 por defecto. tolerancia igual a 0.4 por defecto.
 <h2>{ FUENTES }</h2>
 <p>
 <strong class="script">
-.osc( frecuencia, sincro, desfazaje )
+osc( frecuencia, sincro, desfazaje )
 </strong>
 Frecuencia = 60 por defecto. 
 Sincro = 0.1 por defecto. 
@@ -467,7 +467,7 @@ Desfazaje = 0 por defecto.
 
 <p>
 <strong class="script">
-.render(output buffer)
+render(output buffer)
 </strong> 
 o0 por defecto.
 </p>
@@ -551,14 +551,14 @@ dentro  de funciones como parámetros.
 { CONTROL DE PARAMETROS SEGÚN EL TIEMPO }</h5> 
 <p>
 <strong class="script">
-.osc(({tiempo})=>Math.sin(tiempo))
+osc(({tiempo})=>Math.sin(tiempo))
 .out(o0)
 </strong>
 </p>
 <h5>{ CONTROL DE PARAMETROS CON EL MOUSE }</h5>
 <p>
 <strong class="script">
-.osc(() => mouse.x).out(o0)
+osc(() => mouse.x).out(o0)
 </strong>
 Controla la frecuencia del oscilador con la posición 
 X e Y del mouse.
